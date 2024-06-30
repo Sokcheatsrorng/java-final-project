@@ -8,6 +8,30 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="postgresql-42.7.2" level="project" />
+<<<<<<< HEAD
     <orderEntry type="library" name="jdatepicker-1.3.4" level="project" />
+=======
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0/src/build/java" />
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0/src/demo/java" />
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0/src/generated/java" />
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0/src/legacy/java" />
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0/src/main/core-api/java" />
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0/src/main/core-impl/java" />
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0/src/main/protocol-impl/java" />
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0/src/main/user-api/java" />
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0/src/main/user-impl/java" />
+          <root url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0/src/test/java" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../mysql-connector-j-8.4.0" recursive="false" />
+      </library>
+    </orderEntry>
+>>>>>>> c949a6900a29664b2188cec2c15cea4bf351df2b
   </component>
 </module>
