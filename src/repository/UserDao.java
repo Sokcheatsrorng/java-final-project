@@ -46,18 +46,24 @@ public class UserDao {
     }
 
     // Method to authenticate a user (check username and password)
-    public boolean authenticate(String username, String password) {
+    public User authenticate(String username, String password) {
         String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, username);
             ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
-                return rs.next();
+                if (rs.next()) {
+                    int id = rs.getInt("id");
+                    String dbUsername = rs.getString("username");
+                    String dbPassword = rs.getString("password");
+                    return new User(id, dbUsername, dbPassword);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return null;
     }
+
 
 }

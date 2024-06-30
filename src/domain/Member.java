@@ -7,12 +7,23 @@ public class Member {
     private String phone;
     private String address;
 
-    public Member(int id, String name, String email, String phone, String address) {
+    private int userId;
+
+    public Member(int id, String name, String email, String phone, String address,int userId) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.address = address;
+        this.userId = userId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     // Getters and setters

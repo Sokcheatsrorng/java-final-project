@@ -112,4 +112,29 @@ public class TransactionDao {
             e.printStackTrace();
         }
     }
+
+    public List<Transaction> getTransactionsByUserId(int userId) {
+        List<Transaction> transactions = new ArrayList<>();
+        String sql = "SELECT * FROM transaction WHERE user_id = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                int bookId = resultSet.getInt("book_id");
+                Date transactionDate = resultSet.getDate("transaction_date");
+                Date returnDate = resultSet.getDate("return_date");
+
+                Transaction transaction = new Transaction(id, userId, bookId, transactionDate, returnDate);
+                transactions.add(transaction);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle exception properly in your application
+        }
+
+        return transactions;
+    }
+
 }

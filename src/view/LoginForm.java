@@ -1,6 +1,7 @@
 package view;
 
 import repository.UserDao;
+import domain.User; // Assuming your User class has fields like id, username, etc.
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +21,6 @@ public class LoginForm extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-
         // Main panel with translucent background
         JPanel mainPanel = new JPanel() {
             @Override
@@ -36,7 +36,6 @@ public class LoginForm extends JFrame {
             }
         };
         mainPanel.setLayout(new BorderLayout());
-
 
         // Title panel
         JPanel titlePanel = new JPanel();
@@ -127,9 +126,13 @@ public class LoginForm extends JFrame {
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
 
-                if (userDao.authenticate(username, password)) {
+                User authenticatedUser = userDao.authenticate(username, password);
+                if (authenticatedUser != null) {
+                    int userId = authenticatedUser.getId();
+                    System.out.println("userid:"+userId);// Retrieve user ID here
+
                     dispose();
-                    new Application().setVisible(true);
+                    new Application(userId).setVisible(true); // Pass userId to your Application class
                 } else {
                     JOptionPane.showMessageDialog(LoginForm.this, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
                 }
